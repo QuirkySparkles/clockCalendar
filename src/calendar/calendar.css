@@ -1,0 +1,32 @@
+#the-calendar {
+    width: 50%;
+    margin: 20% auto 0;
+    text-align: center;
+}
+
+h1 {
+    font-family: sans-serif;
+    margin-bottom: 5px;
+}
+
+p {
+    font-family: sans-serif;
+    margin-top: 0;
+    font-size: 64px;
+}
+
+#calendar-eu {
+    display: block;
+}
+
+#calendar-ua {
+    display: none;
+}
+
+#calendar-eu:hover {
+    color: deepskyblue;
+}
+
+#calendar-ua:hover {
+    color: deepskyblue;
+}

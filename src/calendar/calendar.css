@@ -16,10 +16,12 @@ p {
 }
 
 #calendar-eu {
+    transition: 1s;
     display: block;
 }
 
 #calendar-ua {
+    transition: 1s;
     display: none;
 }
 

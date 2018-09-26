@@ -1,7 +1,26 @@
 the-clock {
+    color: red;
     display: block;
 }
 
 the-calendar {
+    color: red;
     display: none;
+}
+
+.clock-corpus {
+    width: 522px;
+    height: 100px;
+    padding-top: 1px;
+    background-image: radial-gradient(black, gray);
+    margin: 20% auto;
+    border-radius: 3px;
+}
+
+.face-clock {
+    width: 90%;
+    background-color: black;
+    border-radius: 5px;
+    margin: auto;
+    margin-top: -80px;
 }

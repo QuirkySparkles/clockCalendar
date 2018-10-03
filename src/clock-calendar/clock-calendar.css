@@ -1,11 +1,9 @@
 the-clock {
     color: red;
-    display: block;
 }
 
 the-calendar {
     color: red;
-    display: none;
 }
 
 .clock-corpus {
@@ -23,4 +21,8 @@ the-calendar {
     border-radius: 5px;
     margin: auto;
     margin-top: -80px;
+}
+
+.hidden {
+    display: none;
 }

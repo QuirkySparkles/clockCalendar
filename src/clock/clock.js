@@ -4,6 +4,9 @@ class Clock extends HTMLElement {
     constructor() {
         super();
         
+        this.secondsElement = "";
+        this.minutesElement = "";
+        this.hoursElement = "";
         this.tickyClock = this.tickyClock.bind(this);
         this.addEventListener("click", e => {
             this.changeScreenFormat();
@@ -16,6 +19,10 @@ class Clock extends HTMLElement {
         const clockInstance = clockTemplate.content.cloneNode(true);
         
         shadowRoot.appendChild(clockInstance);
+        
+        this.secondsElement = shadowRoot.querySelector("#ss");
+        this.minutesElement = shadowRoot.querySelector("#mm");
+        this.hoursElement = shadowRoot.querySelector("#hh");
         activateTime(this.tickyClock);
     };
     
@@ -29,31 +36,34 @@ class Clock extends HTMLElement {
             Calendar.changeableCalendar();
         }
 
-        this.displayTimeUnit("#ss", seconds);
-        this.displayTimeUnit("#mm", minutes);
-        this.displayTimeUnit("#hh", hours);
+        this.displayTimeUnit(seconds, this.secondsElement, "seconds");
+        this.displayTimeUnit(minutes, this.minutesElement);
+        this.displayTimeUnit(hours, this.hoursElement);
     }
     
-    displayTimeUnit(unit, digits) {
+    displayTimeUnit(digits, display, seconds) {
         if (digits < 10) {
             digits = "0" + digits;
         }
         
-        if (unit === "#ss") {
+        if (seconds) {
             digits = ":" + digits;
         }
         
-        this.shadowRoot.querySelector(unit).innerHTML = digits;
+        if (digits == display.innerHTML) {
+            return;
+        }
+        
+        display.innerHTML = digits;
     }
     
     changeScreenFormat() {
-        let secondsElement = this.shadowRoot.querySelector("#ss");
-        let isSecondsShown = secondsElement.style.display;
+        let isSecondsHidden = this.secondsElement.classList;
         
-        if (isSecondsShown === "inline") {
-            secondsElement.style.display = "none";
+        if (isSecondsHidden.length) {
+            isSecondsHidden.remove("hidden");
         } else {
-            secondsElement.style.display = "inline";
+            isSecondsHidden.add("hidden");
         }
     }
 }

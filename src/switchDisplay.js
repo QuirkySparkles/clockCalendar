@@ -1,13 +1,13 @@
 function switchDisplay(element1, element2) {
     let firstElement = element1;
     let secondElement = element2;
-    let isFirstElementShown = firstElement.style.display;
+    let isFirstElementHidden = firstElement.classList;
 
-    if (isFirstElementShown === "block" || !isFirstElementShown) {
-        firstElement.style.display = "none";
-        secondElement.style.display = "block";
+    if (isFirstElementHidden.length ) {
+        firstElement.classList.remove("hidden");
+        secondElement.classList.add("hidden");
     } else {
-        firstElement.style.display = "block";
-        secondElement.style.display = "none";
+        firstElement.classList.add("hidden");
+        secondElement.classList.remove("hidden"); 
     }
 }
